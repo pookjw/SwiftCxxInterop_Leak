@@ -11,10 +11,11 @@
 
 int main(int argc, const char * argv[]) {
     FooObject *fooObject;
-    NSAutoreleasePool *pool = [NSAutoreleasePool new];
-    fooObject = MyScript::getFooObject();
-//    fooObject = [FooObject getFooObject];
-    [pool release];
+    
+    @autoreleasepool {
+        fooObject = MyScript::getFooObject();
+        //    fooObject = [FooObject getFooObject];
+    }
     
     NSLog(@"%@", fooObject);
     
